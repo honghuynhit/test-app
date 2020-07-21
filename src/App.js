@@ -26,6 +26,7 @@ function App() {
 
   return (
     <div>
+      <h2>List user</h2>
       <List items={items} fallback={"Loading..."} />
     </div>
   );
