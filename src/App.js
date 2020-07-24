@@ -3,7 +3,6 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
-
 // Just a data fetching function
 const fetchURL = "https://ga-django-backend.herokuapp.com/posts/";
 const getItems = () => fetch(fetchURL).then(res => res.json());
@@ -36,12 +35,14 @@ function App() {
   }, []);
 
   return (
-    <div className="content-center">
-      <h2>Gà Django</h2>
-      <main>
-        <List items={items} fallback={"Loading..."} />
-      </main>
-    </div>
+      <div>
+        <div className="content-center">
+          <h2>Gà Django</h2>
+          <main>
+            <List items={items} fallback={"Loading..."} />
+          </main>
+        </div>
+      </div>
   );
 }
 
