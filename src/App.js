@@ -3,6 +3,7 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
+
 // Just a data fetching function
 const fetchURL = "https://ga-django-backend.herokuapp.com/posts/";
 const getItems = () => fetch(fetchURL).then(res => res.json());
