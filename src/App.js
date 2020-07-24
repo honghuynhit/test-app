@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 
 // Just a data fetching function
-const fetchURL = "https://ga-django-backend.herokuapp.com/users/";
+const fetchURL = "https://ga-django-backend.herokuapp.com/posts/";
 const getItems = () => fetch(fetchURL).then(res => res.json());
 
 function List({ items, fallback }) {
@@ -12,7 +12,17 @@ function List({ items, fallback }) {
     return fallback;
   } else {
     return items.map(item => {
-      return <div key={item.username}>{item.username}</div>;
+      return (
+        <article key={item.id}>
+          <header className="header">
+            <h3>
+              <a rel="bookmark" href="/the-wet-codebase/">{item.title}</a>
+            </h3>
+            <small>{item.pub_date}   •☕️• 1 min read </small>
+          </header>
+          <p>{item.text} </p>
+        </article>
+      )
     });
   }
 }
@@ -25,8 +35,11 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <List items={items} fallback={"Loading..."} />
+    <div className="content-center">
+      <h2>Gà Django</h2>
+      <main>
+        <List items={items} fallback={"Loading..."} />
+      </main>
     </div>
   );
 }
